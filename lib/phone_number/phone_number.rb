@@ -43,8 +43,11 @@ module PhoneNumber
     private
     def matchers_from_i18n
       return [] unless defined?(I18n)
+      original_locale = I18n.locale
+      I18n.locale = @locale
       formats = I18n.t "phone_number.formats"
-      if formats.is_a?(Array)
+      I18n.locale = original_locale
+      return_val = if formats.is_a?(Array)
         formats.collect{|i| i.symbolize_keys}
       elsif formats.is_a?(Hash)
         [formats.symbolize_keys]

@@ -1,0 +1,18 @@
+en-CA:
+  phone_number:
+    formats:
+      -
+        description: "7 digits"
+        match: !ruby/regexp "/^(\d{3})(\d{4})$/"
+        format: "\\1-\\2"
+        h264: 
+      -
+        description: "10 digits"
+        match: !ruby/regexp "/^1?(\d{3})(\d{3})(\d{4})$/"
+        format: "(\\1) \\2-\\3"
+        h264: "+1\\1\\2\\3"
+      -
+        description: "10 digits plus extension"
+        match: !ruby/regexp "/^1?(\d{3})(\d{3})(\d{4})x([\d]+)$/i"
+        format: "(\\1) \\2-\\3 x\\4"
+        h264: "+1\\1\\2\\3"

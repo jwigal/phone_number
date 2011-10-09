@@ -1,0 +1,14 @@
+en-AU:
+  phone_number:
+    source: "http://en.wikipedia.org/wiki/Telephone_numbers_in_Australia"
+    formats:
+      -
+        description: "Land numbers"
+        match: !ruby/regexp "/^(0)([0-35-9])(\d{4})(\d{4})$/"
+        format: "(\\1\\2) \\3 \\4"
+        h264: "+61\\2\\3\4"
+      -
+        description: "Mobile Numbers"
+        match: !ruby/regexp "/^(0)(4\d{2})(\d{3})(\d{3})$/"
+        format: "\\1\\2 \\3 \\4"
+        h264: "+61\\2\\3\4"
